@@ -1,0 +1,18 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4' // Dagger 2 dependency
+        classpath 'me.tatarka:gradle-retrolambda:3.1.0'            // RxJava sugar syntax
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
