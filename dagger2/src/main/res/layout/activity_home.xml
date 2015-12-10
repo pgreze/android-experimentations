@@ -9,14 +9,14 @@
     android:layout_height="match_parent">
 
     <fragment
-        android:name="pgreze.dagger2.home.hello.HelloFragment"
+        android:name="pgreze.dagger2.ui.hello.HelloFragment"
         tools:layout="@layout/fragment_hello"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 
     <fragment
-        android:name="pgreze.dagger2.home.player.PlayerFragment"
+        android:name="pgreze.dagger2.ui.player.PlayerFragment"
         tools:layout="@layout/fragment_player"
         android:layout_weight="1"
         android:layout_width="match_parent"

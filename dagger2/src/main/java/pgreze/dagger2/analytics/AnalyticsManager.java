@@ -8,6 +8,10 @@ public class AnalyticsManager {
 
     private final MessageService messageService;
 
+    /**
+     * Constructor with @Inject will be used by dagger
+     * @param messageService
+     */
     @Inject
     public AnalyticsManager(MessageService messageService) {
         this.messageService = messageService;

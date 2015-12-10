@@ -1,4 +1,4 @@
-package pgreze.dagger2.home.hello;
+package pgreze.dagger2.ui.hello;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,12 +11,10 @@ import android.widget.Button;
 import javax.inject.Inject;
 
 import pgreze.dagger2.R;
-import pgreze.dagger2.app.AppComponent;
 import pgreze.dagger2.di.HasComponent;
+import pgreze.dagger2.ui.ActivityComponent;
 
 public class HelloFragment extends Fragment {
-
-    private HelloComponent component;
 
     @Inject HelloPresenter presenter;
     private Button helloBtn;
@@ -24,11 +22,8 @@ public class HelloFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        component = DaggerHelloComponent.builder()
-                .appComponent(((HasComponent<AppComponent>) getActivity()).component())
-                .helloModule(new HelloModule(this))
-                .build();
-        component.inject(this);
+        ((HasComponent<ActivityComponent>) getActivity()).component().inject(this);
+        presenter.init(this);
     }
 
     @Override
@@ -42,12 +37,7 @@ public class HelloFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         helloBtn = (Button) view.findViewById(R.id.hello_btn);
-        helloBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.onHelloClick();
-            }
-        });
+        helloBtn.setOnClickListener(v -> presenter.onHelloClick());
     }
 
     public Button getHelloBtn() {

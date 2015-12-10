@@ -1,4 +1,4 @@
-package pgreze.dagger2.home;
+package pgreze.dagger2.ui;
 
 import java.util.Random;
 
@@ -6,12 +6,17 @@ import javax.inject.Named;
 
 import dagger.Module;
 import dagger.Provides;
-import pgreze.dagger2.di.ActivityScope;
+import pgreze.dagger2.di.UILifecycleScope;
 
 @Module
-public class HomeModule {
+public class ActivityModule {
 
-    private Random random = new Random();
+    private final MainActivity activity;
+    private final Random random = new Random();
+
+    public ActivityModule(MainActivity activity) {
+        this.activity = activity;
+    }
 
     /**
      * This provider is annotated with:
@@ -20,10 +25,10 @@ public class HomeModule {
      * <br/>
      * - @ActivityScope, an unique instance will be created for all @Named("ActivityScope") requests
      * @return a singleton
-     * @see HomeActivity
+     * @see MainActivity
      */
-    @ActivityScope @Named("ActivityScope") @Provides
-    StringBuilder provideBuilderActivityScope() {
+    @UILifecycleScope @Named("ActivityScope")
+    @Provides StringBuilder provideBuilderActivityScope() {
         return new StringBuilder("activity " + random.nextInt());
     }
 
@@ -31,7 +36,8 @@ public class HomeModule {
      * Special provider for @Named("Unscoped") requests
      * @return an unscoped StringBuilder
      */
-    @Named("Unscoped") @Provides StringBuilder provideBuilderUnscoped() {
+    @Named("Unscoped")
+    @Provides StringBuilder provideBuilderUnscoped() {
         return new StringBuilder("Unscoped " + random.nextInt());
     }
 

@@ -6,32 +6,32 @@ import android.content.Context;
 import javax.inject.Inject;
 
 import pgreze.dagger2.analytics.AnalyticsManager;
+import pgreze.dagger2.di.HasComponent;
 
-public class Dagger2App extends Application {
+public class Dagger2App extends Application implements HasComponent<AppComponent> {
 
     public static Dagger2App getInstance(Context context) {
         return (Dagger2App) context.getApplicationContext();
     }
 
-    private AppComponent component;
-
     @Inject AnalyticsManager analyticsManager;
+
+    private AppComponent component;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        setupGraph();
-        analyticsManager.event("app_opened");
+        component().inject(this);
+        analyticsManager.event("App Opened");
     }
 
-    private void setupGraph() {
-        component = DaggerAppComponent.builder()
-                .appModule(new AppModule(this))
-                .build();
-        component.inject(this);
-    }
-
+    @Override
     public AppComponent component() {
+        if (component == null) {
+            component = DaggerAppComponent.builder()
+                    .appModule(new AppModule(this))
+                    .build();
+        }
         return component;
     }
 }

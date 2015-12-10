@@ -1,4 +1,4 @@
-package pgreze.dagger2.home.player;
+package pgreze.dagger2.ui.player;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,14 +11,12 @@ import android.widget.Button;
 import javax.inject.Inject;
 
 import pgreze.dagger2.R;
-import pgreze.dagger2.app.AppComponent;
 import pgreze.dagger2.di.HasComponent;
+import pgreze.dagger2.ui.ActivityComponent;
 
-import static pgreze.dagger2.home.player.PlayerInteractor.Status;
+import static pgreze.dagger2.ui.player.PlayerInteractor.Status;
 
 public class PlayerFragment extends Fragment {
-
-    private PlayerComponent component;
 
     @Inject PlayerInteractor playerInteractor;
     private Button statusBtn;
@@ -26,10 +24,7 @@ public class PlayerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        component = DaggerPlayerComponent.builder()
-                .appComponent(((HasComponent<AppComponent>) getActivity()).component())
-                .build();
-        component.inject(this);
+        ((HasComponent<ActivityComponent>) getActivity()).component().inject(this);
     }
 
     @Override
@@ -44,12 +39,9 @@ public class PlayerFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         statusBtn = (Button) view.findViewById(R.id.status_btn);
         updateStatusBtn(playerInteractor.getStatus());
-        statusBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Status status = playerInteractor.onIndicatorClick();
-                updateStatusBtn(status);
-            }
+        statusBtn.setOnClickListener(v -> {
+            Status status = playerInteractor.onIndicatorClick();
+            updateStatusBtn(status);
         });
     }
 
