@@ -72,7 +72,7 @@ public class PagerInceptionActivity extends AppCompatActivity implements PageFra
      *     <li>Fragments tag are not public</li>
      * </ul>
      */
-    class PagerInceptionActivityAdapter extends FragmentPagerAdapter {
+    static class PagerInceptionActivityAdapter extends FragmentPagerAdapter {
 
         protected int count = 1;
 
