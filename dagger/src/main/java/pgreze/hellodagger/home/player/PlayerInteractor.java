@@ -5,7 +5,7 @@ import android.widget.Toast;
 
 public class PlayerInteractor {
 
-    public static enum Status { PLAY, PAUSE, STOP }
+    public enum Status { PLAY, PAUSE, STOP }
 
     private final Context context;
     private Status current = Status.STOP;

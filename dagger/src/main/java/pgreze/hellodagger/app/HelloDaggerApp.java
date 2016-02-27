@@ -2,7 +2,7 @@ package pgreze.hellodagger.app;
 
 import android.app.Application;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -24,7 +24,7 @@ public class HelloDaggerApp extends Application {
     }
 
     private List<Object> getModules() {
-        return Arrays.<Object>asList(new AppModule(this));
+        return Collections.<Object>singletonList(new AppModule(this));
     }
 
     public ObjectGraph createScopedGraph(Object... modules) {

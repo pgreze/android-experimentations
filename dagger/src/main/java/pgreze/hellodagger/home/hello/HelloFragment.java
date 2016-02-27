@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -22,7 +22,7 @@ public class HelloFragment extends BaseFragment {
 
     @Override
     public List<? extends Object> getModules() {
-        return Arrays.asList(new HelloModule(this));
+        return Collections.singletonList(new HelloModule(this));
     }
 
     @Override
