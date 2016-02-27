@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion TARGET_SDK
+    buildToolsVersion BUILD_TOOLS
 
     defaultConfig {
         applicationId "pgreze.insideviewpager"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion TARGET_SDK
         versionCode 1
         versionName "1.0"
     }
@@ -19,6 +19,5 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile libs.appcompat
 }
