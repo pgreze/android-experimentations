@@ -3,6 +3,7 @@ package fr.pgreze.testme.domain.app.di;
 import javax.inject.Singleton;
 
 import dagger.Component;
+import fr.pgreze.testme.data.github.GithubService;
 import fr.pgreze.testme.domain.github.GithubModule;
 
 @Singleton
@@ -11,4 +12,5 @@ import fr.pgreze.testme.domain.github.GithubModule;
         GithubModule.class,
 })
 public interface AppComponent {
+    GithubService githubService();
 }

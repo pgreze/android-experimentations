@@ -24,6 +24,8 @@ public class GithubModule {
                 .setRequestInterceptor(request -> {
                     // Request API v3. See https://developer.github.com/v3/
                     request.addHeader("Accept", "application/vnd.github.v3+json");
+                    // See https://developer.github.com/v3/#user-agent-required
+                    request.addHeader("User-Agent", "pgreze");
                 })
                 .build();
         return restAdapter.create(GithubService.class);
