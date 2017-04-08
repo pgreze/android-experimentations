@@ -1,1 +1,1 @@
-include ':dagger', ':dagger2', ':mergedrawable', ':pager-inception', ':tests'
+include ':dagger', ':dagger2', ':mergedrawable', ':pager-inception'
