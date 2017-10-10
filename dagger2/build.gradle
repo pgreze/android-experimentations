@@ -1,6 +1,14 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.1.0'
+    }
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion TARGET_SDK
@@ -26,7 +34,9 @@ android {
 
 dependencies {
     compile libs.appcompat
+
     compile libs.dagger
-    apt libs.dagger_compiler
+    compile libs.dagger_android_support
+    annotationProcessor libs.dagger_compiler
     provided libs.javax_annotation
 }
