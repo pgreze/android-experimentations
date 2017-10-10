@@ -11,13 +11,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion TARGET_SDK
-    buildToolsVersion BUILD_TOOLS
+    compileSdkVersion rootProject.target_sdk
+    buildToolsVersion rootProject.build_tools
 
     defaultConfig {
         applicationId "pgreze.dagger2"
-        minSdkVersion MIN_SDK_VERSION
-        targetSdkVersion TARGET_SDK
+        minSdkVersion rootProject.min_sdk
+        targetSdkVersion rootProject.target_sdk
         versionCode 1
         versionName "1.0"
     }
@@ -33,10 +33,12 @@ android {
 }
 
 dependencies {
-    compile libs.appcompat
+    compile "com.android.support:appcompat-v7:$app_compat_version"
 
-    compile libs.dagger
-    compile libs.dagger_android_support
-    annotationProcessor libs.dagger_compiler
-    provided libs.javax_annotation
+    compile 'com.google.dagger:dagger:2.11'
+    compile 'com.google.dagger:dagger-android-support:2.11'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    testCompile 'junit:junit:4.12'
 }

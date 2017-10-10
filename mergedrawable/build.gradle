@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion TARGET_SDK
-    buildToolsVersion BUILD_TOOLS
+    compileSdkVersion rootProject.target_sdk
+    buildToolsVersion rootProject.build_tools
 
     defaultConfig {
-        applicationId 'pgreze.mergedrawable'
-        minSdkVersion 16
-        targetSdkVersion TARGET_SDK
+        applicationId "pgreze.mergedrawable"
+        minSdkVersion rootProject.min_sdk
+        targetSdkVersion rootProject.target_sdk
         versionCode 1
         versionName '1.0'
     }
@@ -19,5 +19,5 @@ android {
 }
 
 dependencies {
-    compile libs.appcompat
+    compile "com.android.support:appcompat-v7:$app_compat_version"
 }
