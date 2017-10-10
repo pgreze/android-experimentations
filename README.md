@@ -1,6 +1,6 @@
-# Android experimentations
+# Android samples
 
-This git repo is holding all my android experimentations, in order to avoid 1 repo for each small projects.
+This git repo is holding all my android samples, in order to avoid 1 repo for each small projects.
 
 It's also a good way to use a multi-module approach with Gradle, not really used in daily Android devs.
 
