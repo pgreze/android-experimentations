@@ -1,7 +1,7 @@
 package pgreze.dagger2.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import javax.inject.Inject;
@@ -12,7 +12,7 @@ import pgreze.dagger2.app.Dagger2App;
 import pgreze.dagger2.di.HasComponent;
 import pgreze.dagger2.di.UILifecycleScope;
 
-public class MainActivity extends ActionBarActivity implements HasComponent<ActivityComponent> {
+public class MainActivity extends AppCompatActivity implements HasComponent<ActivityComponent> {
     private static final String TAG = MainActivity.class.getName();
 
     @Inject @Named("ActivityScope") StringBuilder activityScope1;

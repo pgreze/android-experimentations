@@ -16,7 +16,7 @@ android {
 
     defaultConfig {
         applicationId "pgreze.dagger2"
-        minSdkVersion 16
+        minSdkVersion MIN_SDK_VERSION
         targetSdkVersion TARGET_SDK
         versionCode 1
         versionName "1.0"

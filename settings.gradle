@@ -1,2 +1,3 @@
-include ':dagger2', ':mergedrawable', ':pager-inception',
-        ':gomobile:app', ':gomobile:golib'
+include ':dagger2', ':mergedrawable', ':pager-inception'
+
+//include ':gomobile:app', ':gomobile:golib'
