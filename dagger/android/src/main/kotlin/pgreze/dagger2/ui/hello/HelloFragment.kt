@@ -42,6 +42,6 @@ class HelloFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         helloBtn = view.findViewById<Button>(R.id.hello_btn)
-        helloBtn.setOnClickListener { v -> presenter.onHelloClick() }
+        helloBtn.setOnClickListener { _ -> presenter.onHelloClick() }
     }
 }

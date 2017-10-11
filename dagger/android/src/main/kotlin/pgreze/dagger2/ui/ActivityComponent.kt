@@ -7,7 +7,7 @@ import pgreze.dagger2.ui.hello.HelloFragment
 import pgreze.dagger2.ui.player.PlayerFragment
 
 /**
- * Component used by [MainActivity] dependents (see inject methods).
+ * PlayerComponent used by [MainActivity] dependents (see inject methods).
  *
  * Allowed dependencies are:
  *  * parent components objects: [AppComponent]

@@ -36,7 +36,7 @@ class PlayerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         statusBtn = view.findViewById<Button>(R.id.status_btn)
-        statusBtn.setOnClickListener { v ->
+        statusBtn.setOnClickListener { _ ->
             val status = playerPresenter.onIndicatorClick()
             updateStatusBtn(status)
         }

@@ -10,7 +10,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
@@ -24,7 +24,7 @@ import java.io.IOException;
 /**
  * See http://stackoverflow.com/a/11740676
  */
-public class MergeDrawable extends ActionBarActivity {
+public class MergeDrawable extends AppCompatActivity {
     private static final String TAG = MergeDrawable.class.getName();
 
     private static final int WIDTH = 640;

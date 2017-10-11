@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/fragment_player"
-        android:name="pgreze.dagger2.ui.player.PlayerFragment"
+        android:name="pgreze.dagger2.ui.musicPlayer.PlayerFragment"
         tools:layout="@layout/fragment_player"
         android:layout_weight="1"
         android:layout_width="match_parent"
